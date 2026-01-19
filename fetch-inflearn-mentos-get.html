@@ -1,0 +1,32 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            // API 엔드포인트 URL
+            const apiUrl = 'https://www.inflearn.com/mentors?page=1';
+
+            // Fetch를 사용하여 데이터를 가져오는 함수
+            function fetchData() {
+            // Fetch 요청 보내기
+            fetch(apiUrl)
+                .then(response => {
+                // 응답을 JSON 형식으로 파싱
+                return response.json();
+                })
+                .then(data => {
+                // 데이터를 사용하는 로직을 여기에 작성
+                console.log('데이터:', data);
+                })
+                .catch(error => {
+                // 오류 처리
+                console.error('오류 발생:', error);
+                });
+            }
+
+            // fetchData 함수 호출
+            fetchData();
+        </script>
+    </body>
+</html>
