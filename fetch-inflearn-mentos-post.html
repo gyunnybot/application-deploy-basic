@@ -1,0 +1,44 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            // API 엔드포인트 URL
+            const apiUrl = 'https://www.inflearn.com/mentors?page=1';
+
+            // POST 요청에 필요한 데이터
+            const requestData = {
+                // 요청에 포함할 데이터 객체를 정의하세요.
+                // 예를 들어, key1: 'value1', key2: 'value2'와 같이 데이터를 추가하세요.
+            };
+
+            // Fetch를 사용하여 데이터를 가져오는 함수
+            function fetchData() {
+                // Fetch 요청 보내기
+                fetch(apiUrl, {
+                    method: 'POST', // POST 요청으로 변경
+                    headers: {
+                        'Content-Type': 'application/json', // 요청 본문의 데이터 형식 설정
+                    },
+                    body: JSON.stringify(requestData), // 요청 데이터를 JSON 문자열로 변환하여 전송
+                })
+                .then(response => {
+                    // 응답을 JSON 형식으로 파싱
+                    return response.json();
+                })
+                .then(data => {
+                    // 데이터를 사용하는 로직을 여기에 작성
+                    console.log('데이터:', data);
+                })
+                .catch(error => {
+                    // 오류 처리
+                    console.error('오류 발생:', error);
+                });
+            }
+
+            // fetchData 함수 호출
+            fetchData();
+        </script>
+    </body>
+</html>
